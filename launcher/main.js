@@ -41,6 +41,11 @@ if (process.platform === 'darwin') {
 	}
 }
 
+if (process.platform === 'linux') {
+	// Specify GTK version for computers with both GTK 2/3 and GTK 4 installed
+	app.commandLine.appendSwitch('gtk-version', '2')
+}
+
 // Ensure there isn't another instance of companion running already
 const lock = app.requestSingleInstanceLock()
 if (!lock) {
